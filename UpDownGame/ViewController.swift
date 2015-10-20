@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  UpDownGame
 //
-//  Created by sdt5 on 2015. 10. 20..
-//  Copyright © 2015년 khe. All rights reserved.
+//  Created by Jaehwan Ji on 2015. 10. 20..
+//  Copyright © 2015년 Jaehwan Ji. All rights reserved.
 //
 
 import UIKit
