@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -25,9 +26,6 @@
                                 </segments>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="33" width="360" height="29"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="114" y="43" width="173" height="29"/>
                                 </variation>
                                 <connections>
                                     <action selector="chooseGame:" destination="BYZ-38-t0r" eventType="valueChanged" id="fx3-7p-CcX"/>
@@ -71,6 +69,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9490196704864502" green="0.95686280727386475" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="LFZ-R8-NgZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1UJ-QU-ait"/>
+                            <constraint firstItem="LFZ-R8-NgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="23" id="DR4-0b-h4g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LFZ-R8-NgZ" secondAttribute="trailing" id="KV6-5K-7rc"/>
+                            <constraint firstItem="LFZ-R8-NgZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WRe-Kq-fhH"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="LFZ-R8-NgZ"/>
@@ -78,6 +82,12 @@
                                 <exclude reference="agf-vF-VAI"/>
                                 <exclude reference="pAb-BW-7es"/>
                                 <exclude reference="7Hz-C1-FHr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1UJ-QU-ait"/>
+                                <exclude reference="DR4-0b-h4g"/>
+                                <exclude reference="KV6-5K-7rc"/>
+                                <exclude reference="WRe-Kq-fhH"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -89,6 +99,14 @@
                                 <include reference="7Hz-C1-FHr"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="1UJ-QU-ait"/>
+                                <include reference="DR4-0b-h4g"/>
+                                <include reference="KV6-5K-7rc"/>
+                                <include reference="WRe-Kq-fhH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="count" destination="pAb-BW-7es" id="Mn1-wo-l7N"/>
@@ -98,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="364"/>
+            <point key="canvasLocation" x="304.5" y="363.75"/>
         </scene>
     </scenes>
 </document>
