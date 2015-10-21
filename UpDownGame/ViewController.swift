@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressTimer: UIProgressView!
     @IBOutlet weak var labelTimer: UILabel!
     
-    //var countDownDuration: NSTimeInterval?
     var countNum = 10;
     var timer: NSTimer!
 
@@ -26,14 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var msg: UILabel!
     @IBOutlet weak var inputNumber: UITextField!
     
-    func start() {
-        
-    }
-    
-    func countDown() {
-        
-    }
-    
+
     func update() {
         labelTimer.text = String(countNum);
         countNum--;
@@ -41,15 +33,9 @@ class ViewController: UIViewController {
         if countNum <= 0 {
             currentCount++
             if currentCount >= maxCount {
-                let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
-                self.randomNumber = Int(arc4random_uniform(10)+1)
-                }
-                dialog.addAction(okAction)
-                self.presentViewController(dialog, animated: true, completion: nil)
+                modalFail()
                 msg.text = "숫자를 입력해 주십시오."
                 currentCount = 0
-
             }
 
             countNum = 10
@@ -80,17 +66,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func enterNumber(sender: AnyObject) {
-
-        
         let number = Int(inputNumber.text!) ?? 0
 
         if number == randomNumber {
-            let dialog = UIAlertController(title: "성 공", message: "\(randomNumber), 정답입니다!", preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
-            self.randomNumber = Int(arc4random_uniform(10)+1)
-            }
-            dialog.addAction(okAction)
-            self.presentViewController(dialog, animated: true, completion: nil)
+            modalSuccess()
             msg.text = "숫자를 입력해 주십시오."
             currentCount = 0
             
@@ -100,12 +79,7 @@ class ViewController: UIViewController {
                 msg.text = "더 큰 숫자를 입력해주세요."
             }
             else {
-                let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
-                self.randomNumber = Int(arc4random_uniform(10)+1)
-                }
-                dialog.addAction(okAction)
-                self.presentViewController(dialog, animated: true, completion: nil)
+                modalFail()
                 msg.text = "숫자를 입력해 주십시오."
                 currentCount = 0
             }
@@ -116,12 +90,7 @@ class ViewController: UIViewController {
                 msg.text = "더 작은 숫자를 입력해주세요."
             }
             else {
-                let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
-                self.randomNumber = Int(arc4random_uniform(10)+1)
-                }
-                dialog.addAction(okAction)
-                self.presentViewController(dialog, animated: true, completion: nil)
+                modalFail()
                 msg.text = "숫자를 입력해 주십시오."
                 currentCount = 0
             }
@@ -130,10 +99,29 @@ class ViewController: UIViewController {
         inputNumber.text = ""
     }
     
+    func modalSuccess() {
+        let dialog = UIAlertController(title: "성 공", message: "\(randomNumber), 정답입니다!", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
+            self.randomNumber = Int(arc4random_uniform(10)+1)
+        }
+        dialog.addAction(okAction)
+        self.presentViewController(dialog, animated: true, completion: nil)
+    }
+    
+    func modalFail() {
+        let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
+            self.randomNumber = Int(arc4random_uniform(10)+1)
+        }
+        dialog.addAction(okAction)
+        self.presentViewController(dialog, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         print("시작 ", terminator:"")
         print(randomNumber)
 
