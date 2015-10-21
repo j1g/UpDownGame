@@ -73,6 +73,8 @@ class ViewController: UIViewController {
         }
         currentCount = 0
         count.text = "\(currentCount) / \(maxCount)"
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true);
+
         print("입력한 숫자 ", terminator:"")
         print(randomNumber)
     }
