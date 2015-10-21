@@ -32,17 +32,17 @@
                                     <action selector="chooseGame:" destination="BYZ-38-t0r" eventType="valueChanged" id="fx3-7p-CcX"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3g-gU-33T">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="입 력"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agf-vF-VAI">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="342" y="111" width="30" height="30"/>
+                                    <rect key="frame" x="20" y="111" width="309" height="30"/>
                                 </variation>
-                                <connections>
-                                    <action selector="enterNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KWG-QM-fXH"/>
-                                </connections>
-                            </button>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="20" y="147" width="309" height="30"/>
+                                </variation>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAb-BW-7es">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -80,28 +80,20 @@
                                     </mask>
                                 </variation>
                             </progressView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agf-vF-VAI">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="oVN-UP-j4N"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="oVN-UP-j4N"/>
-                                    </mask>
-                                </variation>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3g-gU-33T">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="입 력"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="111" width="309" height="30"/>
+                                    <rect key="frame" x="342" y="111" width="30" height="30"/>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="147" width="309" height="30"/>
-                                    <mask key="constraints">
-                                        <include reference="oVN-UP-j4N"/>
-                                    </mask>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="350" y="147" width="30" height="30"/>
                                 </variation>
-                            </textField>
+                                <connections>
+                                    <action selector="enterNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KWG-QM-fXH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9490196704864502" green="0.95686280727386475" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -110,25 +102,27 @@
                             <constraint firstItem="M1W-b0-7iK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7eJ-vh-Egk"/>
                             <constraint firstItem="LFZ-R8-NgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="23" id="DR4-0b-h4g"/>
                             <constraint firstItem="M1W-b0-7iK" firstAttribute="top" secondItem="LFZ-R8-NgZ" secondAttribute="bottom" constant="21" id="Fv5-Ip-DnR"/>
-                            <constraint firstItem="agf-vF-VAI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HD5-c4-uhS"/>
+                            <constraint firstItem="z3g-gU-33T" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IAB-IO-FdB"/>
+                            <constraint firstItem="z3g-gU-33T" firstAttribute="leading" secondItem="agf-vF-VAI" secondAttribute="trailing" constant="21" id="JeN-TJ-nSd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LFZ-R8-NgZ" secondAttribute="trailing" id="KV6-5K-7rc"/>
                             <constraint firstItem="pAb-BW-7es" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="OLB-2d-tK9"/>
                             <constraint firstItem="pAb-BW-7es" firstAttribute="top" secondItem="LFZ-R8-NgZ" secondAttribute="bottom" constant="11" id="OTe-Ix-ANL"/>
                             <constraint firstItem="z3g-gU-33T" firstAttribute="top" secondItem="7Hz-C1-FHr" secondAttribute="bottom" constant="8" id="Prd-eS-LL6"/>
+                            <constraint firstItem="agf-vF-VAI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pzt-6O-uA3"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="U06-TJ-kfl"/>
                             <constraint firstItem="LFZ-R8-NgZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WRe-Kq-fhH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z3g-gU-33T" secondAttribute="trailing" constant="4" id="gs5-Bc-pH9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z3g-gU-33T" secondAttribute="trailing" id="gs5-Bc-pH9"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vcS-bW-Ufy"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="top" secondItem="pAb-BW-7es" secondAttribute="bottom" constant="15" id="wZi-Yg-TEP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="LFZ-R8-NgZ"/>
-                                <exclude reference="z3g-gU-33T"/>
+                                <exclude reference="agf-vF-VAI"/>
                                 <exclude reference="pAb-BW-7es"/>
                                 <exclude reference="7Hz-C1-FHr"/>
                                 <exclude reference="M1W-b0-7iK"/>
-                                <exclude reference="agf-vF-VAI"/>
+                                <exclude reference="z3g-gU-33T"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1UJ-QU-ait"/>
@@ -141,9 +135,11 @@
                                 <exclude reference="vcS-bW-Ufy"/>
                                 <exclude reference="wZi-Yg-TEP"/>
                                 <exclude reference="3yb-iB-59v"/>
-                                <exclude reference="HD5-c4-uhS"/>
+                                <exclude reference="Pzt-6O-uA3"/>
                                 <exclude reference="OLB-2d-tK9"/>
                                 <exclude reference="OTe-Ix-ANL"/>
+                                <exclude reference="IAB-IO-FdB"/>
+                                <exclude reference="JeN-TJ-nSd"/>
                                 <exclude reference="Prd-eS-LL6"/>
                                 <exclude reference="gs5-Bc-pH9"/>
                             </mask>
@@ -151,10 +147,10 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="LFZ-R8-NgZ"/>
-                                <include reference="z3g-gU-33T"/>
+                                <include reference="agf-vF-VAI"/>
                                 <include reference="pAb-BW-7es"/>
                                 <include reference="7Hz-C1-FHr"/>
-                                <include reference="agf-vF-VAI"/>
+                                <include reference="z3g-gU-33T"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -172,9 +168,11 @@
                                 <include reference="vcS-bW-Ufy"/>
                                 <include reference="wZi-Yg-TEP"/>
                                 <include reference="3yb-iB-59v"/>
-                                <include reference="HD5-c4-uhS"/>
+                                <include reference="Pzt-6O-uA3"/>
                                 <include reference="OLB-2d-tK9"/>
                                 <include reference="OTe-Ix-ANL"/>
+                                <include reference="IAB-IO-FdB"/>
+                                <include reference="JeN-TJ-nSd"/>
                                 <include reference="Prd-eS-LL6"/>
                                 <include reference="gs5-Bc-pH9"/>
                             </mask>
