@@ -14,11 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressTimer: UIProgressView!
     @IBOutlet weak var labelTimer: UILabel!
     
-    var countDownDuration: NSTimeInterval?
-    // 타이머 생성
-    //var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true);
-    
-    
+    //var countDownDuration: NSTimeInterval?
+    var countNum = 10;
+    var timer: NSTimer!
+
     var randomNumber = Int(arc4random_uniform(10)+1)
     var currentCount = 0
     var maxCount = 5
@@ -34,13 +33,32 @@ class ViewController: UIViewController {
     func countDown() {
         
     }
-    /*
-    // 1초마다 호출되는 함수
+    
     func update() {
-        label.text = String(countNum);
-        countNum++;
+        labelTimer.text = String(countNum);
+        countNum--;
+        
+        if countNum <= 0 {
+            currentCount++
+            if currentCount >= maxCount {
+                let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
+                self.randomNumber = Int(arc4random_uniform(10)+1)
+                }
+                dialog.addAction(okAction)
+                self.presentViewController(dialog, animated: true, completion: nil)
+                msg.text = "숫자를 입력해 주십시오."
+                currentCount = 0
+
+            }
+
+            countNum = 10
+            count.text = "\(currentCount) / \(maxCount)"
+
+            //timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true);
+        }
     }
-*/
+
     
     @IBAction func chooseGame(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -117,6 +135,8 @@ class ViewController: UIViewController {
         print("시작 ", terminator:"")
         print(randomNumber)
 
+        // 타이머 생성
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true);
     }
 
     override func didReceiveMemoryWarning() {
