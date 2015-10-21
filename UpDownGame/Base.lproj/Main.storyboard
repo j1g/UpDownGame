@@ -66,18 +66,8 @@
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M1W-b0-7iK">
                                 <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="225" id="Xda-Da-wPf"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Xda-Da-wPf"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Xda-Da-wPf"/>
-                                    </mask>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="92" width="225" height="2"/>
                                 </variation>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3g-gU-33T">
@@ -109,6 +99,7 @@
                             <constraint firstItem="pAb-BW-7es" firstAttribute="top" secondItem="LFZ-R8-NgZ" secondAttribute="bottom" constant="11" id="OTe-Ix-ANL"/>
                             <constraint firstItem="z3g-gU-33T" firstAttribute="top" secondItem="7Hz-C1-FHr" secondAttribute="bottom" constant="8" id="Prd-eS-LL6"/>
                             <constraint firstItem="agf-vF-VAI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pzt-6O-uA3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M1W-b0-7iK" secondAttribute="trailing" constant="55" id="T2f-ye-Jvn"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="U06-TJ-kfl"/>
                             <constraint firstItem="LFZ-R8-NgZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WRe-Kq-fhH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z3g-gU-33T" secondAttribute="trailing" id="gs5-Bc-pH9"/>
@@ -131,6 +122,7 @@
                                 <exclude reference="WRe-Kq-fhH"/>
                                 <exclude reference="7eJ-vh-Egk"/>
                                 <exclude reference="Fv5-Ip-DnR"/>
+                                <exclude reference="T2f-ye-Jvn"/>
                                 <exclude reference="U06-TJ-kfl"/>
                                 <exclude reference="vcS-bW-Ufy"/>
                                 <exclude reference="wZi-Yg-TEP"/>
@@ -164,6 +156,7 @@
                                 <include reference="WRe-Kq-fhH"/>
                                 <include reference="7eJ-vh-Egk"/>
                                 <include reference="Fv5-Ip-DnR"/>
+                                <include reference="T2f-ye-Jvn"/>
                                 <include reference="U06-TJ-kfl"/>
                                 <include reference="vcS-bW-Ufy"/>
                                 <include reference="wZi-Yg-TEP"/>
