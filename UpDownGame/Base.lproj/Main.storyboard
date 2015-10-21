@@ -205,6 +205,7 @@
                     <connections>
                         <outlet property="count" destination="pAb-BW-7es" id="Mn1-wo-l7N"/>
                         <outlet property="inputNumber" destination="agf-vF-VAI" id="0Nq-Oo-TmF"/>
+                        <outlet property="labelTimer" destination="1Lt-nl-g7B" id="S3i-b3-pSo"/>
                         <outlet property="msg" destination="7Hz-C1-FHr" id="uFo-x4-qUJ"/>
                         <outlet property="progressCount" destination="M1W-b0-7iK" id="H95-CV-INZ"/>
                         <outlet property="progressTimer" destination="D9A-9A-xe3" id="OYF-JR-RuT"/>

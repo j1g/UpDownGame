@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressCount: UIProgressView!
 
     @IBOutlet weak var progressTimer: UIProgressView!
+    @IBOutlet weak var labelTimer: UILabel!
+    
+    var timer = NSTimer()
+    let timeInterval: NSTimeInterval = 0.05
+    let timerEnd: NSTimeInterval = 10.0
+    var timeCount: NSTimeInterval = 0.0
     
     var randomNumber = Int(arc4random_uniform(10)+1)
     var currentCount = 0
@@ -22,28 +28,67 @@ class ViewController: UIViewController {
     @IBOutlet weak var msg: UILabel!
     @IBOutlet weak var inputNumber: UITextField!
     
+    func startTimer() {
+        if !timer.valid {
+            labelTimer.text = timeString(timeCount)
+            timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval,
+                target: self,
+                selector: "timerDidEnd:",
+                userInfo: "",
+                repeats: true)
+        }
+    }
+    func countDown() {
+        if !timer.valid {
+            resetTimeCount()
+        }
+    }
+    func resetTimer() {
+        timer.invalidate()
+        resetTimeCount()
+        labelTimer.text = timeString(timeCount)
+    }
+    func resetTimeCount(){
+        timeCount = timerEnd
+    }
+    func timeString(time:NSTimeInterval) -> String {
+        let minutes = Int(time) / 60
+        //let seconds = Int(time) % 60
+        let seconds = time - Double(minutes) * 60
+        let secondsFraction = seconds - Double(Int(seconds))
+        return String(format:"%02i:%02i.%01i",minutes,Int(seconds),Int(secondsFraction * 10.0))
+    }
+    func timerDidEnd(timer:NSTimer) {
+        timeCount = timeCount - timeInterval
+        if timeCount <= 0 {
+            labelTimer.text = "-1회"
+            timer.invalidate()
+        } else {
+            labelTimer.text = timeString(timeCount)
+        }
+    }
+    
+    
     @IBAction func chooseGame(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             randomNumber = Int(arc4random_uniform(10)+1)
-            currentCount = 0
             maxCount = 5
-            count.text = "\(currentCount) / \(maxCount)"
         } else if sender.selectedSegmentIndex == 1 {
             randomNumber = Int(arc4random_uniform(50)+1)
-            currentCount = 0
             maxCount = 8
-            count.text = "\(currentCount) / \(maxCount)"
         } else { // == 2
             randomNumber = Int(arc4random_uniform(100)+1)
-            currentCount = 0
             maxCount = 10
-            count.text = "\(currentCount) / \(maxCount)"
         }
+        currentCount = 0
+        count.text = "\(currentCount) / \(maxCount)"
         print("입력한 숫자 ", terminator:"")
         print(randomNumber)
     }
     
     @IBAction func enterNumber(sender: AnyObject) {
+        startTimer()
+        
         let number = Int(inputNumber.text!) ?? 0
 
         if number == randomNumber {
@@ -55,7 +100,6 @@ class ViewController: UIViewController {
             self.presentViewController(dialog, animated: true, completion: nil)
             msg.text = "숫자를 입력해 주십시오."
             currentCount = 0
-            count.text = "\(currentCount) / \(maxCount)"
             
         } else if number < randomNumber {
             currentCount++
@@ -72,7 +116,6 @@ class ViewController: UIViewController {
                 msg.text = "숫자를 입력해 주십시오."
                 currentCount = 0
             }
-            count.text = "\(currentCount) / \(maxCount)"
             
         } else {
             currentCount++
@@ -89,8 +132,8 @@ class ViewController: UIViewController {
                 msg.text = "숫자를 입력해 주십시오."
                 currentCount = 0
             }
-            count.text = "\(currentCount) / \(maxCount)"
         }
+        count.text = "\(currentCount) / \(maxCount)"
         inputNumber.text = ""
     }
     
