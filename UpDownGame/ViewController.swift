@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var progressCount: UIProgressView!
+
+    @IBOutlet weak var progressTimer: UIProgressView!
+    
     var randomNumber = Int(arc4random_uniform(10)+1)
     var currentCount = 0
     var maxCount = 5
@@ -45,36 +49,40 @@ class ViewController: UIViewController {
         if number == randomNumber {
             let dialog = UIAlertController(title: "성 공", message: "\(randomNumber), 정답입니다!", preferredStyle: UIAlertControllerStyle.Alert)
             let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
+            self.randomNumber = Int(arc4random_uniform(10)+1)
             }
             dialog.addAction(okAction)
             self.presentViewController(dialog, animated: true, completion: nil)
             msg.text = "숫자를 입력해 주십시오."
             currentCount = 0
             count.text = "\(currentCount) / \(maxCount)"
+            
         } else if number < randomNumber {
+            currentCount++
             if currentCount < maxCount {
                 msg.text = "더 큰 숫자를 입력해주세요."
-                currentCount++
             }
             else {
                 let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
+                self.randomNumber = Int(arc4random_uniform(10)+1)
                 }
                 dialog.addAction(okAction)
                 self.presentViewController(dialog, animated: true, completion: nil)
                 msg.text = "숫자를 입력해 주십시오."
                 currentCount = 0
-
             }
             count.text = "\(currentCount) / \(maxCount)"
+            
         } else {
+            currentCount++
             if currentCount > maxCount {
                 msg.text = "더 작은 숫자를 입력해주세요."
-                currentCount++
             }
             else {
                 let dialog = UIAlertController(title: "실 패", message: "정답은 \(randomNumber) 입니다!", preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "새로 시작", style: UIAlertActionStyle.Default) { (action) -> Void in print("OK 선택")
+                self.randomNumber = Int(arc4random_uniform(10)+1)
                 }
                 dialog.addAction(okAction)
                 self.presentViewController(dialog, animated: true, completion: nil)

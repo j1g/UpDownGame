@@ -70,6 +70,9 @@
                                     <rect key="frame" x="20" y="92" width="225" height="2"/>
                                 </variation>
                             </progressView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="D9A-9A-xe3">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
+                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3g-gU-33T">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -84,11 +87,21 @@
                                     <action selector="enterNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KWG-QM-fXH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lt-nl-g7B">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="100" y="232" width="201" height="128"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9490196704864502" green="0.95686280727386475" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="LFZ-R8-NgZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1UJ-QU-ait"/>
                             <constraint firstItem="agf-vF-VAI" firstAttribute="top" secondItem="7Hz-C1-FHr" secondAttribute="bottom" constant="8" id="3yb-iB-59v"/>
+                            <constraint firstItem="1Lt-nl-g7B" firstAttribute="top" secondItem="D9A-9A-xe3" secondAttribute="bottom" constant="21" id="5Cj-FA-hPG"/>
                             <constraint firstItem="M1W-b0-7iK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7eJ-vh-Egk"/>
                             <constraint firstItem="LFZ-R8-NgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="23" id="DR4-0b-h4g"/>
                             <constraint firstItem="M1W-b0-7iK" firstAttribute="top" secondItem="LFZ-R8-NgZ" secondAttribute="bottom" constant="21" id="Fv5-Ip-DnR"/>
@@ -97,14 +110,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LFZ-R8-NgZ" secondAttribute="trailing" id="KV6-5K-7rc"/>
                             <constraint firstItem="pAb-BW-7es" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="OLB-2d-tK9"/>
                             <constraint firstItem="pAb-BW-7es" firstAttribute="top" secondItem="LFZ-R8-NgZ" secondAttribute="bottom" constant="11" id="OTe-Ix-ANL"/>
+                            <constraint firstItem="1Lt-nl-g7B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P8Y-UF-8jZ"/>
                             <constraint firstItem="z3g-gU-33T" firstAttribute="top" secondItem="7Hz-C1-FHr" secondAttribute="bottom" constant="8" id="Prd-eS-LL6"/>
                             <constraint firstItem="agf-vF-VAI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pzt-6O-uA3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M1W-b0-7iK" secondAttribute="trailing" constant="55" id="T2f-ye-Jvn"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="U06-TJ-kfl"/>
                             <constraint firstItem="LFZ-R8-NgZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WRe-Kq-fhH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z3g-gU-33T" secondAttribute="trailing" id="gs5-Bc-pH9"/>
+                            <constraint firstItem="D9A-9A-xe3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jNo-XQ-lem"/>
+                            <constraint firstItem="D9A-9A-xe3" firstAttribute="top" secondItem="z3g-gU-33T" secondAttribute="bottom" constant="32" id="vcR-Lg-TwS"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vcS-bW-Ufy"/>
                             <constraint firstItem="7Hz-C1-FHr" firstAttribute="top" secondItem="pAb-BW-7es" secondAttribute="bottom" constant="15" id="wZi-Yg-TEP"/>
+                            <constraint firstItem="D9A-9A-xe3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zWt-5j-aVa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -113,7 +130,9 @@
                                 <exclude reference="pAb-BW-7es"/>
                                 <exclude reference="7Hz-C1-FHr"/>
                                 <exclude reference="M1W-b0-7iK"/>
+                                <exclude reference="D9A-9A-xe3"/>
                                 <exclude reference="z3g-gU-33T"/>
+                                <exclude reference="1Lt-nl-g7B"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1UJ-QU-ait"/>
@@ -128,6 +147,11 @@
                                 <exclude reference="wZi-Yg-TEP"/>
                                 <exclude reference="3yb-iB-59v"/>
                                 <exclude reference="Pzt-6O-uA3"/>
+                                <exclude reference="jNo-XQ-lem"/>
+                                <exclude reference="vcR-Lg-TwS"/>
+                                <exclude reference="zWt-5j-aVa"/>
+                                <exclude reference="5Cj-FA-hPG"/>
+                                <exclude reference="P8Y-UF-8jZ"/>
                                 <exclude reference="OLB-2d-tK9"/>
                                 <exclude reference="OTe-Ix-ANL"/>
                                 <exclude reference="IAB-IO-FdB"/>
@@ -148,6 +172,8 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="M1W-b0-7iK"/>
+                                <include reference="D9A-9A-xe3"/>
+                                <include reference="1Lt-nl-g7B"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="1UJ-QU-ait"/>
@@ -162,6 +188,11 @@
                                 <include reference="wZi-Yg-TEP"/>
                                 <include reference="3yb-iB-59v"/>
                                 <include reference="Pzt-6O-uA3"/>
+                                <include reference="jNo-XQ-lem"/>
+                                <include reference="vcR-Lg-TwS"/>
+                                <include reference="zWt-5j-aVa"/>
+                                <include reference="5Cj-FA-hPG"/>
+                                <include reference="P8Y-UF-8jZ"/>
                                 <include reference="OLB-2d-tK9"/>
                                 <include reference="OTe-Ix-ANL"/>
                                 <include reference="IAB-IO-FdB"/>
@@ -175,6 +206,8 @@
                         <outlet property="count" destination="pAb-BW-7es" id="Mn1-wo-l7N"/>
                         <outlet property="inputNumber" destination="agf-vF-VAI" id="0Nq-Oo-TmF"/>
                         <outlet property="msg" destination="7Hz-C1-FHr" id="uFo-x4-qUJ"/>
+                        <outlet property="progressCount" destination="M1W-b0-7iK" id="H95-CV-INZ"/>
+                        <outlet property="progressTimer" destination="D9A-9A-xe3" id="OYF-JR-RuT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
